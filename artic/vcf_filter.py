@@ -41,7 +41,7 @@ class NanoporeFilter:
             if float(strand_fraction_by_strand[1]) < 0.5:
                 return False
 
-        if total_reads < 20:
+        if total_reads < 10:
             return False
 
         return True
@@ -52,7 +52,7 @@ class MedakaFilter:
 
     def check_filter(self, v):
         depth = v.INFO['DP']
-        if depth < 20:
+        if depth < 10:
             return False
 
         if self.no_frameshifts and not in_frame(v):
